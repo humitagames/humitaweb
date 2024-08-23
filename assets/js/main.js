@@ -32,6 +32,12 @@
     });
 
     /** Botones */
+    const buttons = document.querySelectorAll(".social-networks a");
+    for(const button of buttons){
+        tippy(button, {
+            content: button.attributes['aria-label'].value
+        });
+    }
     //buttons.random.addEventListener("click", _ => { characterRandom(); attacksRandom(); });
 
     /*tippy(buttons.random, {
