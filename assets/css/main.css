@@ -86,17 +86,13 @@ body{
 }
 
 .container{
+    position: relative;
     display: grid;
     justify-content: center;
     align-items: center;
     align-content: center;
     justify-items: center;
     gap: 10px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
     overflow: hidden;
@@ -117,16 +113,17 @@ canvas{
 
 /* social-networks */
 .social-networks{
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
     grid-auto-flow: column;
     gap: 20px;
     justify-content: center;
     align-items: center;
     transition: transform 0.2s ease-in-out;
+    max-width: 90vw;
 }
 
 .social-networks > *{
-    width: 32px;
     display: grid;
     cursor: pointer;
     transition: transform 0.1s ease-in-out, filter 0.1s ease-in-out;
@@ -145,6 +142,8 @@ canvas{
 }
 
 .social-networks svg{
+    width: 32px;
+    height: 32px;
     fill: rgb(255,255,255);
 }
 
@@ -177,8 +176,19 @@ canvas{
     background-clip: padding-box;
     overflow: hidden;
     border: 2px solid var(--overlay);
-    border: 2px solid var(--overlay);
 }
+
+.sections > .section > .card::before{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 8px;
+    background-color: var(--overlay);
+    overflow: hidden;
+}
+
 
 .sections > .section > .card  > .data {
     display: grid;
@@ -203,13 +213,16 @@ canvas{
 }
 
 .sections > .section > .card  > .data > .icons > *{
-    width: 24px;
-    height: 29px;
     display: grid;
     cursor: pointer;
     transition: transform 0.1s ease-in-out, filter 0.1s ease-in-out;
     user-select: none;
     -webkit-tap-highlight-color:transparent;
+}
+
+.sections > .section > .card  > .data > .icons > *:hover, .sections > .section > .card  > .data > .icons > *:active{
+    transform: scale(1.1);
+    filter: brightness(1.1);
 }
 
 .sections > .section > .card  > .data > .icons a{
@@ -218,7 +231,43 @@ canvas{
 }
 
 .sections > .section > .card  > .data > .icons svg{
+    width: 24px;
+    height: 29px;
     fill: rgb(255,255,255);
+}
+
+.footer {
+    position: absolute;
+    bottom: 20px;
+    display: grid;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    min-height: 100px;
+    gap: 20px;
+}
+
+.footer > .humita-year{
+    display: flex;
+    grid-template-columns: auto auto;
+    gap: 5px;
+    justify-content: center;
+    font-size: 0.8em;
+}
+
+.footer > .humita-year::before {
+    content: attr(data-content);
+}
+
+.footer > .humita-year::after {
+    content: attr(data-year);
+}
+
+@media (max-width: 500px) {
+    .social-networks{
+        gap: 10px;
+    }
 }
 
 @media (max-width: 472px) {
@@ -226,12 +275,34 @@ canvas{
         width: 342px;
         height: 80px;
     }
+
+    .sections{
+        width: 342px;
+    }
+
+    .sections > .section > .card::before{
+        content: '';
+    }
+
+    .social-networks{
+        gap: 5px;
+    }
+
+    .social-networks svg{
+        transform: scale(.8);
+    }
+
+    
 }
 
 @media (max-width: 370px) {
     .logo{
         width: 252px;
         height: 59px;
+    }
+
+    .sections{
+        width: 300px;
     }
 }
 
