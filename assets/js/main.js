@@ -20,7 +20,7 @@
 
     // Vantas
     VANTA.WAVES({
-        el: document.querySelector(".container"),
+        el: document.body,
         mouseControls: true,
         touchControls: true,
         gyroControls: false,
@@ -32,29 +32,12 @@
     });
 
     /** Botones */
-    const buttons = document.querySelectorAll(".social-networks a");
+    const buttons = document.querySelectorAll("a");
     for(const button of buttons){
         tippy(button, {
             content: button.attributes['aria-label'].value
         });
     }
-    //buttons.random.addEventListener("click", _ => { characterRandom(); attacksRandom(); });
-
-    /*tippy(buttons.random, {
-        content: Localization.GetTranslate("main","random")
-    });
-    tippy(buttons.next, {
-        content: Localization.GetTranslate("main","next")
-    });
-    tippy(buttons.prev, {
-        content: Localization.GetTranslate("main","prev")
-    });
-    tippy(buttons.share, {
-        content: Localization.GetTranslate("main","share")
-    });
-    tippy(buttons.background, {
-        content: Localization.GetTranslate("main","background")
-    });*/
 
     // PWA
     if ("serviceWorker" in navigator) {
