@@ -15,7 +15,7 @@
     // Agregar el anho actual al footer
     ( _ => {
         const humitaYear = document.querySelector(".humita-year");
-        if(humitaYear) humitaYear.dataset.year =  new Date().getFullYear();
+        if(humitaYear) humitaYear.dataset.year =  "- " + new Date().getFullYear();
     })();
 
     // Vantas
