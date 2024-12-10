@@ -178,6 +178,10 @@ canvas{
     border: 2px solid var(--overlay);
 }
 
+.sections > .section > .card.clickable{
+    cursor: pointer;
+}
+
 .sections > .section > .card::before{
     content: '';
     position: absolute;
@@ -207,7 +211,7 @@ canvas{
 .sections > .section > .card  > .data > .icons{
     display: grid;
     grid-auto-flow: column;
-    gap: 20px;
+    gap: 12px;
     justify-content: center;
     align-items: center;
     transition: transform 0.2s ease-in-out;

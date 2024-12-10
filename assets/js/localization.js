@@ -13,18 +13,24 @@ class Localization{
                 pageTitle: "Humita Games - Sabor a Chile",
                 pageDescription: "Video game development studio",
                 sectionGamesTitle: "Video games",
+                sectionShopTitle: "Shop",
+                chile: "Chile",
             },
 
             es: {
                 pageTitle: "Humita Games - Sabor a Chile",
                 pageDescription: "Estudio de desarrollo de videojuegos",
                 sectionGamesTitle: "Juegos",
+                sectionShopTitle: "Tienda",
+                chile: "Chile",
             },
 
             ja: {
                 pageTitle: "Humita Games - チリの味わい",
                 pageDescription: "ビデオゲーム開発スタジオ",
                 sectionGamesTitle: "ビデオゲーム",
+                sectionShopTitle: "グッズショップ",
+                chile: "チリ",
             }
 
         }
@@ -35,6 +41,7 @@ class Localization{
     static GetTranslate( page, key, values, element, attributeTarget ){
         
         let language = Localization.GetSelectedLanguage();
+        if(!Localization.Main()[language]) language = 'en';
         let string = "";
         values = values? (Array.isArray(values)? values : values.split(",")) : [];
         const withArguments = values.length > 0;

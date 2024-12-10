@@ -39,6 +39,12 @@
         });
     }
 
+    /** Clickable objects */
+    const clickables = document.querySelectorAll(".clickable");
+    for(const clickable of clickables){
+        clickable.addEventListener("click", _ => {window.open(clickable.getAttribute("href"),"_blank")});
+    }
+
     // PWA
     if ("serviceWorker" in navigator) {
         window.addEventListener("load", async () => {
